@@ -255,9 +255,7 @@ abstract class ReorderableAnimatedListBaseState<
               oldList.indexWhere((oldItem) => isSameItem(oldItem, newList[i]));
 
           if (oldIndex != -1) {
-            if (!isSameItem(newList[oldIndex], oldList[i])) {
-              swappedPairs.add([i, oldIndex]);
-            }
+            swappedPairs.add([i, oldIndex]);
           }
         }
       }
