@@ -248,7 +248,7 @@ abstract class ReorderableAnimatedListBaseState<
   void calculateDiff(List oldList, List newList) {
     final swappedPairs = [];
 
-    if (oldList.length == newList.length && widget.enableSwap) {
+    if (widget.enableSwap) {
       for (int i = 0; i < newList.length; i++) {
         if (!isSameItem(oldList[i], newList[i])) {
           final oldIndex =
@@ -259,17 +259,14 @@ abstract class ReorderableAnimatedListBaseState<
           }
         }
       }
-      if (swappedPairs.isEmpty) {
-        return;
       }
       // Handle swapped Items
       for (List<int> pair in swappedPairs) {
         listKey.currentState!.moveItem(pair[0], pair[1]);
       }
-      return;
     }
 
-    // Detect removed and updated items
+      // Detect removed and updated items
     for (int i = oldList.length - 1; i >= 0; i--) {
       if (newList.indexWhere((element) => isSameItem(oldList[i], element)) ==
           -1) {
