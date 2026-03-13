@@ -250,7 +250,7 @@ abstract class ReorderableAnimatedListBaseState<
 
     if (widget.enableSwap) {
       for (int i = 0; i < newList.length; i++) {
-        if (!isSameItem(oldList[i], newList[i])) {
+        if (oldList.length <= i || !isSameItem(oldList[i], newList[i])) {
           final oldIndex =
               oldList.indexWhere((oldItem) => isSameItem(oldItem, newList[i]));
 
