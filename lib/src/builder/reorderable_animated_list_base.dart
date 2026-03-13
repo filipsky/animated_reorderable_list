@@ -259,14 +259,13 @@ abstract class ReorderableAnimatedListBaseState<
           }
         }
       }
-      }
       // Handle swapped Items
       for (List<int> pair in swappedPairs) {
         listKey.currentState!.moveItem(pair[0], pair[1]);
       }
     }
 
-      // Detect removed and updated items
+    // Detect removed and updated items
     for (int i = oldList.length - 1; i >= 0; i--) {
       if (newList.indexWhere((element) => isSameItem(oldList[i], element)) ==
           -1) {
